@@ -1,0 +1,9 @@
+*~
+*.log
+*.csv
+*.html
+__pycache__/
+test.py
+
+*.pyc
+
