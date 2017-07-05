@@ -1,5 +1,6 @@
 
 import socket
+import json
 
 import dumps
 import fort_fabric
@@ -24,7 +25,10 @@ class sender:
 		self.ip = '178.91.254.41'
 		self.potr = '65400'
 
-		self.sourcelist = [] # loop list
+		self.sourcelist = get_source_list() # loop list
+
+	def get_source_list():
+		pass								# get source list from json
 
 	def start(self):
 		if self.sourcelist == []:

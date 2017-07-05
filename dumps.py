@@ -13,6 +13,18 @@ class dump:
 		self.prev = None
 		self.next = None
 
+
+	# {
+	# 'Deviceid':'804',
+	# 'Imei':'fort_0354868052847854',
+	# 'Timestamp':'1493196245',
+	# 'Latitude':'43.2359619140625',
+	# 'Longitude':'76.8729410807292',
+	# 'Altitude':'840',
+	# 'Speed':'1.5',
+	# 'Heading':'172'
+	# }
+
 class dump_list:
 
 	def __init__(self):
