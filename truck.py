@@ -1,6 +1,8 @@
 
 import socket
 import json
+from datetime import datetime
+
 
 from pprint import pprint
 
@@ -40,11 +42,23 @@ class sender:
 			print('start source loop')
 
 			for dump in self.sourcelist:
-				print('{}: {}'.format('Timestamp', dump['Timestamp']))
+				
 				# dump = self.sourcelist.next()
+				dt_start = datetime.utcnow()
 
-				msg = fabric.get_message(dump)
+				msg, num = fabric.get_message(dump)
+				
 				self.send(msg)
+
+				dt_end = datetime.utcnow()
+				dt_delta = dt_end - dt_start
+
+				print('{}: {} | {:10} | {}'.format(
+					'Timestamp', 
+					dump['Timestamp'], 
+					num,
+					dt_delta))
+
 
 
 
@@ -57,14 +71,9 @@ class sender:
 		data = sock.recv(1024)
 		sock.close()
 
-		print('{}: {}'.format('after send', data))
-
-
 
 def main():
-	print('init')
 	s = sender()
-	print('start')
 	s.start()
 
 

@@ -7,7 +7,6 @@ from pprint import pprint
 class fort_fabric():
 
 	def __init__(self):
-		print('fort_fabric init')
 
 		# for lastnumbers
 		# imei : lastnumber
@@ -29,7 +28,7 @@ class fort_fabric():
 			self._get_io(),
 			self._get_end(num)
 			)
-		return self._set_length_to_message(msg)
+		return self._set_length_to_message(msg), num
 
 	def _get_title(self, imei):
 		title = 'DA' + '02' + '0B'
@@ -87,12 +86,8 @@ class fort_fabric():
 
 	def _get_last_num(self, imei):
 
-		print('_get_last_num start')
-
 		_step, _max, _first = 1, 255, 0
 		last = self.dumps[imei]
-
-		print('last: {}'.format(last))
 
 		if last != None:
 			if last < _max:
